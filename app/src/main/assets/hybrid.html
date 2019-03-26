@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <h2>
+      hello
+  </h2>
+   <div id="box">
+       替换
+   </div>
+  <div id="result"></div>
+    <button id="btn1" onclick="callAndroid()">
+        调用原生方法
+    </button>
+  <button type="button" id="button1" onclick="clickprompt()">点击调用Android代码</button>
+
+  <script>
+      function sayHello(){
+         alert("Android对JS的说Hello");
+      }
+      function write(msg) {
+       var box = document.querySelector('#box');
+       box.innerHTML = msg;
+      }
+      function callJS(msg) {
+        console.log(msg)
+      }
+      function callAndroid() {
+        bridge.sayAndroid()
+     }
+         function clickprompt() {
+           var result = prompt("bridge://demo?arg1=111&arg2=222");
+
+           var box = document.querySelector('#result');
+           box.innerHTML = result;
+
+         }
+
+  </script>
+
+</body>
+</html>
